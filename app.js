@@ -35,7 +35,27 @@ const person = new Person({
   age:37
 })
 
-person.save();
+// person.save();
+
+const orange = new Fruit({
+  name: "Orange",
+  score: 6,
+  review: "Kinda sour"
+})
+
+const banana = new Fruit({
+  name: "Banana",
+  score: 9,
+  review: "Great stuff"
+})
+
+Fruit.insertMany([orange,banana],function(err,docs){
+  if(err){
+    console.log("There is an error");
+  }else{
+    console.log("Successfully add two fruits!");
+  }
+})
 
 
 // const { MongoClient } = require("mongodb");
