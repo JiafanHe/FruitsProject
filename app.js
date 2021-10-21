@@ -21,7 +21,21 @@ const fruit = new Fruit({
   review: "Great fruit"
 })
 
-fruit.save();
+// fruit.save();
+
+const personSchema = new Schema({
+  name:String,
+  age:Number
+})
+
+const Person = mongoose.model("Person",personSchema);
+
+const person = new Person({
+  name: "John",
+  age:37
+})
+
+person.save();
 
 
 // const { MongoClient } = require("mongodb");
