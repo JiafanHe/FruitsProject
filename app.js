@@ -49,13 +49,37 @@ const banana = new Fruit({
   review: "Great stuff"
 })
 
-Fruit.insertMany([orange,banana],function(err,docs){
-  if(err){
-    console.log("There is an error");
-  }else{
-    console.log("Successfully add two fruits!");
-  }
-})
+// Fruit.insertMany([orange,banana],function(err,docs){
+//   if(err){
+//     console.log("There is an error");
+//   }else{
+//     console.log("Successfully add two fruits!");
+//   }
+// })
+
+//Model.find()
+
+
+Fruit.find({},function(err,docs){
+  docs.forEach((doc)=>{
+    console.log(doc.name);
+  })
+  // Close the connection inside the callback function.
+  mongoose.disconnect(function(err){
+    if(err){
+      console.log("Error");
+    }else{
+      console.log("Successfully close the connection");
+    }
+  })
+});
+
+
+
+
+
+
+
 
 
 // const { MongoClient } = require("mongodb");
