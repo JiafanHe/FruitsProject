@@ -23,11 +23,21 @@ const fruitSchema = new Schema({
 const Fruit = mongoose.model("Fruit",fruitSchema);
 
 const fruit = new Fruit({
+  name: "P",
   score: 8,
   review: "Great fruit"
 })
 
 // fruit.save();
+
+
+const res = Fruit.updateOne({name:"P"},{name:"Peach"},function(err){
+  if(err){
+    console.log(err);
+  }else{
+    console.log("Successfully updated the document");
+  }
+});
 
 const personSchema = new Schema({
   name:String,
@@ -64,20 +74,20 @@ const banana = new Fruit({
 // })
 
 //Model.find()
-
+// Reading from your database with mongoose
 
 Fruit.find({},function(err,docs){
   docs.forEach((doc)=>{
     console.log(doc.name);
   })
   // Close the connection inside the callback function.
-  mongoose.disconnect(function(err){
-    if(err){
-      console.log("Error");
-    }else{
-      console.log("Successfully close the connection");
-    }
-  })
+  // mongoose.disconnect(function(err){
+  //   if(err){
+  //     console.log("Error");
+  //   }else{
+  //     console.log("Successfully close the connection");
+  //   }
+  // })
 });
 
 
