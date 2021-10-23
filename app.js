@@ -4,10 +4,17 @@ const { Schema } = mongoose;
 mongoose.connect('mongodb://localhost:27017/fruitsDB');
 
 // Define your schema. Everything in Mongoose starts with a schema
-
+//Add some built-in data validation
 const fruitSchema = new Schema({
-  name:String,
-  rating:Number,
+  name:{
+    type:String,
+    required: [true, "Please check your data entry, no name specified."]
+  },
+  rating:{
+    type:Number,
+    min:1,
+    max:10
+  },
   review:String
 })
 
@@ -16,7 +23,6 @@ const fruitSchema = new Schema({
 const Fruit = mongoose.model("Fruit",fruitSchema);
 
 const fruit = new Fruit({
-  name: "Apple",
   score: 8,
   review: "Great fruit"
 })
