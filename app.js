@@ -28,16 +28,10 @@ const fruit = new Fruit({
   review: "Great fruit"
 })
 
-fruit.save();
+// fruit.save();
 
 
-// const res = Fruit.updateOne({name:"P"},{name:"Peach"},function(err){
-//   if(err){
-//     console.log(err);
-//   }else{
-//     console.log("Successfully updated the document");
-//   }
-// });
+
 
 // Delete data by .deleteOne(filter,callback)
 // Fruit.deleteOne({name:"Peach"},function(err){
@@ -63,7 +57,7 @@ const person = new Person({
   favoriteFruit:fruit
 })
 
-person.save();
+// person.save();
 // Delete a number of documents by .deleteMany()
 // Person.deleteMany({name:"John"},function(err){
 //   if(err){
@@ -73,11 +67,13 @@ person.save();
 //   }
 // })
 
-const orange = new Fruit({
-  name: "Orange",
-  score: 6,
-  review: "Kinda sour"
+const watermelon = new Fruit({
+  name: "Watermelon",
+  score: 9,
+  review: "Awsome"
 })
+
+watermelon.save();
 
 const banana = new Fruit({
   name: "Banana",
@@ -108,6 +104,14 @@ Fruit.find({},function(err,docs){
   //     console.log("Successfully close the connection");
   //   }
   // })
+});
+
+const res = Person.updateOne({name:"John"},{favoriteFruit:watermelon},function(err){
+  if(err){
+    console.log(err);
+  }else{
+    console.log("Successfully updated the document");
+  }
 });
 
 
