@@ -31,13 +31,22 @@ const fruit = new Fruit({
 // fruit.save();
 
 
-const res = Fruit.updateOne({name:"P"},{name:"Peach"},function(err){
-  if(err){
-    console.log(err);
-  }else{
-    console.log("Successfully updated the document");
-  }
-});
+// const res = Fruit.updateOne({name:"P"},{name:"Peach"},function(err){
+//   if(err){
+//     console.log(err);
+//   }else{
+//     console.log("Successfully updated the document");
+//   }
+// });
+
+// Delete data by .deleteOne(filter,callback)
+// Fruit.deleteOne({name:"Peach"},function(err){
+//   if(err){
+//     console.log(err);
+//   }else{
+//     console.log("successfully delete");
+//   }
+// })
 
 const personSchema = new Schema({
   name:String,
@@ -51,7 +60,15 @@ const person = new Person({
   age:37
 })
 
-// person.save();
+person.save();
+// Delete a number of documents by .deleteMany()
+// Person.deleteMany({name:"John"},function(err){
+//   if(err){
+//     console.log(err);
+//   }else{
+//     console.log("successfully delete many Johns!");
+//   }
+// })
 
 const orange = new Fruit({
   name: "Orange",
