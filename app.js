@@ -23,12 +23,12 @@ const fruitSchema = new Schema({
 const Fruit = mongoose.model("Fruit",fruitSchema);
 
 const fruit = new Fruit({
-  name: "P",
+  name: "Pineapple",
   score: 8,
   review: "Great fruit"
 })
 
-// fruit.save();
+fruit.save();
 
 
 // const res = Fruit.updateOne({name:"P"},{name:"Peach"},function(err){
@@ -48,16 +48,19 @@ const fruit = new Fruit({
 //   }
 // })
 
+// Embed fruit document into person document
 const personSchema = new Schema({
   name:String,
-  age:Number
-})
+  age:Number,
+  favoriteFruit:fruitSchema
+});
 
 const Person = mongoose.model("Person",personSchema);
 
 const person = new Person({
-  name: "John",
-  age:37
+  name: "Amy",
+  age:12,
+  favoriteFruit:fruit
 })
 
 person.save();
